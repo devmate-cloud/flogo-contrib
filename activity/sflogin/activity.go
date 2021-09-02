@@ -30,7 +30,9 @@ func New(ctx activity.InitContext) (activity.Activity, error) {
 		return nil, err
 	}
 
-	ctx.Logger().Infof("Setting: %s", s.BaseUrl)
+	ctx.Logger().Debugf("Setting: %s", s.BaseUrl)
+
+	fmt.Println("Setting baseUrl: ", s.BaseUrl)
 
 	act := &Activity{
 		BaseUrl: s.BaseUrl, ClientId: s.ClientId, ClientSecret: s.ClientSecret, Username: s.Username, Password: s.Password} //add aSetting to instance
@@ -40,11 +42,11 @@ func New(ctx activity.InitContext) (activity.Activity, error) {
 
 // Activity is an sflogin Activity that can be used as a base to create a custom activity
 type Activity struct {
-	BaseUrl      string `md:"BaseUrl,required"`
-	ClientId     string `md:"ClientId,required"`
-	ClientSecret string `md:"ClientSecret,required"`
-	Username     string `md:"Username,required"`
-	Password     string `md:"Password,required"`
+	BaseUrl      string
+	ClientId     string
+	ClientSecret string
+	Username     string
+	Password     string
 }
 
 // Metadata returns the activity's metadata
@@ -60,6 +62,8 @@ func (a *Activity) Eval(ctx activity.Context) (done bool, err error) {
 	if err != nil {
 		return true, err
 	}
+
+	fmt.Println("Input baseUrl: ", a.BaseUrl)
 
 	url := a.BaseUrl + "/services/oauth2/token"
 	method := "POST"

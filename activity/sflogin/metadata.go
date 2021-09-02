@@ -4,11 +4,11 @@ import "github.com/project-flogo/core/data/coerce"
 
 type Settings struct {
 	// BaseUrl: https://(login|test).salesforce.com
-	BaseUrl      string `md:"BaseUrl,required"`
-	ClientId     string `md:"ClientId,required"`
-	ClientSecret string `md:"ClientSecret,required"`
-	Username     string `md:"Username,required"`
-	Password     string `md:"Password,required"`
+	BaseUrl      string `md:"baseUrl,required"`
+	ClientId     string `md:"clientId,required"`
+	ClientSecret string `md:"clientSecret,required"`
+	Username     string `md:"username,required"`
+	Password     string `md:"password,required"`
 }
 
 type Input struct {
@@ -23,7 +23,7 @@ func (r *Input) ToMap() map[string]interface{} {
 }
 
 type Output struct {
-	AccessToken string `md:"AccessToken"`
+	AccessToken string `md:"accessToken"`
 }
 
 func (o *Output) FromMap(values map[string]interface{}) error {

@@ -7,27 +7,27 @@
   "homepage": "https://github.com/devmate-cloud/flogo-contrib/tree/main/activity/sflogin",
   "settings": [
     {
-      "name": "BaseUrl",
+      "name": "baseUrl",
       "type": "string",
       "required": true
     },
     {
-      "name": "ClientId",
+      "name": "clientId",
       "type": "string",
       "required": true
     },
     {
-      "name": "ClientSecret",
+      "name": "clientSecret",
       "type": "string",
       "required": true
     },
     {
-      "name": "Username",
+      "name": "username",
       "type": "string",
       "required": true
     },
     {
-      "name": "Password",
+      "name": "password",
       "type": "string",
       "required": true
     }
@@ -36,7 +36,7 @@
   ],
   "output": [
     {
-      "name": "AccessToken",
+      "name": "accessToken",
       "type": "string"
     }
   ]
