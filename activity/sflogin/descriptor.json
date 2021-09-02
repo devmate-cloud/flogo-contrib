@@ -12,32 +12,27 @@
       "required": true
     },
     {
-      "name": "clientId",
+      "name": "ClientId",
       "type": "string",
       "required": true
     },
     {
-      "name": "clientSecret",
+      "name": "ClientSecret",
       "type": "string",
       "required": true
     },
     {
-      "name": "username",
+      "name": "Username",
       "type": "string",
       "required": true
     },
     {
-      "name": "password",
+      "name": "Password",
       "type": "string",
       "required": true
     }
   ],
   "input": [
-    {
-      "name": "anInput",
-      "type": "string",
-      "required": true
-    }
   ],
   "output": [
     {

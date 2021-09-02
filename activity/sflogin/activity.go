@@ -61,8 +61,6 @@ func (a *Activity) Eval(ctx activity.Context) (done bool, err error) {
 		return true, err
 	}
 
-	ctx.Logger().Debugf("Input: %s", input.AnInput)
-
 	url := a.BaseUrl + "/services/oauth2/token"
 	method := "POST"
 

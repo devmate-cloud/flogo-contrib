@@ -12,19 +12,14 @@ type Settings struct {
 }
 
 type Input struct {
-	AnInput string `md:"anInput,required"`
 }
 
 func (r *Input) FromMap(values map[string]interface{}) error {
-	strVal, _ := coerce.ToString(values["anInput"])
-	r.AnInput = strVal
 	return nil
 }
 
 func (r *Input) ToMap() map[string]interface{} {
-	return map[string]interface{}{
-		"anInput": r.AnInput,
-	}
+	return map[string]interface{}{}
 }
 
 type Output struct {
