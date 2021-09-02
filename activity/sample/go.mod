@@ -1,4 +1,4 @@
-module sf-login/v1
+module github.com/devmate-cloud/flogo-contrib/activity/sample
 
 go 1.16
 
