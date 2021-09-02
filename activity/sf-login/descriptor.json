@@ -1,0 +1,48 @@
+{
+  "name": "sflogin-activity",
+  "type": "flogo:activity",
+  "version": "0.0.1",
+  "title": "Sflogin Activity",
+  "description": "Sflogin Activity",
+  "homepage": "https://github.com/devmate-cloud/flogo-contrib/tree/main/activity/sflogin",
+  "settings": [
+    {
+      "name": "BaseUrl",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "clientId",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "clientSecret",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "username",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "input": [
+    {
+      "name": "anInput",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "output": [
+    {
+      "name": "AccessToken",
+      "type": "string"
+    }
+  ]
+}
