@@ -23,7 +23,7 @@ func (r *Input) ToMap() map[string]interface{} {
 }
 
 type Output struct {
-	AccessToken string `md:"accessToken"`
+	AccessToken string `md:"AccessToken"`
 }
 
 func (o *Output) FromMap(values map[string]interface{}) error {

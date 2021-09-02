@@ -106,15 +106,18 @@ func (a *Activity) Eval(ctx activity.Context) (done bool, err error) {
 
 	json.Unmarshal([]byte(body), &json_data)
 
-	accessToken, err := jsonpath.JsonPathLookup(json_data, "$.access_token")
+	val, err := jsonpath.JsonPathLookup(json_data, "$.access_token")
 
-	if str, ok := accessToken.(string); ok {
+	if str, ok := val.(string); ok {
+
 		/* act on str */
 		output := &Output{AccessToken: str}
 		err = ctx.SetOutputObject(output)
 		if err != nil {
 			return true, err
 		}
+
+		fmt.Println("==> Access Token: ", output.AccessToken)
 
 		return true, nil
 	} else {
