@@ -7,7 +7,27 @@
   "homepage": "https://github.com/devmate-cloud/flogo-contrib/tree/main/activity/sample",
   "settings": [
     {
-      "name": "aSetting",
+      "name": "BaseUrl",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "clientId",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "clientSecret",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "username",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "password",
       "type": "string",
       "required": true
     }
@@ -21,7 +41,7 @@
   ],
   "output": [
     {
-      "name": "anOutput",
+      "name": "AccessToken",
       "type": "string"
     }
   ]

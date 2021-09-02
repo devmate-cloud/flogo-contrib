@@ -3,7 +3,12 @@ package sample
 import "github.com/project-flogo/core/data/coerce"
 
 type Settings struct {
-	ASetting string `md:"aSetting,required"`
+	// BaseUrl: https://(login|test).salesforce.com
+	BaseUrl      string `md:"BaseUrl,required"`
+	ClientId     string `md:"ClientId,required"`
+	ClientSecret string `md:"ClientSecret,required"`
+	Username     string `md:"Username,required"`
+	Password     string `md:"Password,required"`
 }
 
 type Input struct {
@@ -23,17 +28,17 @@ func (r *Input) ToMap() map[string]interface{} {
 }
 
 type Output struct {
-	AnOutput string `md:"anOutput"`
+	AccessToken string `md:"AccessToken"`
 }
 
 func (o *Output) FromMap(values map[string]interface{}) error {
-	strVal, _ := coerce.ToString(values["anOutput"])
-	o.AnOutput = strVal
+	strVal, _ := coerce.ToString(values["AccessToken"])
+	o.AccessToken = strVal
 	return nil
 }
 
 func (o *Output) ToMap() map[string]interface{} {
 	return map[string]interface{}{
-		"anOutput": o.AnOutput,
+		"AccessToken": o.AccessToken,
 	}
 }

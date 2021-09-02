@@ -2,6 +2,7 @@ package sample
 
 import (
 	"fmt"
+	"os"
 	"testing"
 
 	"github.com/project-flogo/core/activity"
@@ -19,7 +20,13 @@ func TestRegister(t *testing.T) {
 
 func TestEval(t *testing.T) {
 
-	act := &Activity{}
+	var baseUrl = os.Getenv("SF_BASE_URL")
+	var clientId = os.Getenv("SF_CLIENT_ID")
+	var clientSecret = os.Getenv("SF_CLIENT_SECRET")
+	var username = os.Getenv("SF_USERNAME")
+	var password = os.Getenv("SF_PASSWORD")
+
+	act := &Activity{BaseUrl: baseUrl, ClientId: clientId, ClientSecret: clientSecret, Username: username, Password: password}
 	tc := test.NewActivityContext(act.Metadata())
 	input := &Input{AnInput: "test"}
 	err := tc.SetInputObject(input)
@@ -32,8 +39,8 @@ func TestEval(t *testing.T) {
 	output := &Output{}
 	err = tc.GetOutputObject(output)
 	assert.Nil(t, err)
-	assert.Equal(t, "test", output.AnOutput)
+	assert.NotNil(t, output.AccessToken)
 
-	fmt.Printf("Result output: %s", output.AnOutput)
+	fmt.Printf("Access token: %s", output.AccessToken)
 	fmt.Println()
 }
