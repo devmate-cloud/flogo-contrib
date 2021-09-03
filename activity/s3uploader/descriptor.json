@@ -15,6 +15,11 @@
       "name": "awsAccessSecret",
       "type": "string",
       "required": true
+    },
+    {
+      "name": "region",
+      "type": "string",
+      "required": true
     }
   ],
   "input": [
