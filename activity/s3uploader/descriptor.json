@@ -23,9 +23,9 @@
     }
   ],
   "input": [
-    { "name": "FileContent", "type": "string", "required": true },
-    { "name": "Bucket", "type": "string", "required": true },
-    { "name": "Key", "type": "string", "required": true }
+    { "name": "fileContent", "type": "string", "required": true },
+    { "name": "bucket", "type": "string", "required": true },
+    { "name": "key", "type": "string", "required": true }
   ],
   "output": [
     {
