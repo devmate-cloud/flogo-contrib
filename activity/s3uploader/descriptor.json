@@ -1,0 +1,42 @@
+{
+  "name": "s3uploader-activity",
+  "type": "flogo:activity",
+  "version": "0.0.1",
+  "title": "S3 Uploader Activity",
+  "description": "S3 Uploader Activity",
+  "homepage": "https://github.com/devmate-cloud/flogo-contrib/tree/main/activity/s3uploader",
+  "settings": [
+    {
+      "name": "awsAccessKey",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "awsAccessSecret",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "input": [
+    { "name": "FileContent", "type": "string", "required": true },
+    { "name": "Bucket", "type": "string", "required": true },
+    { "name": "Key", "type": "string", "required": true }
+  ],
+  "output": [
+    {
+      "name": "uploadID",
+      "type": "string",
+      "description": "File UploadID"
+    },
+    {
+      "name": "versionID",
+      "type": "string",
+      "description": "File VersionID"
+    },
+    {
+      "name": "location",
+      "type": "string",
+      "description": "file S3 Location"
+    }
+  ]
+}
