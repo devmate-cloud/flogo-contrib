@@ -3,9 +3,10 @@ package s3uploader
 import "github.com/project-flogo/core/data/coerce"
 
 type Settings struct {
-	AwsAccessKey    string `md:"awsAccessKey,required"`                 // AWS Credential Key
-	AwsAccessSecret string `md:"awsAccessSecret,required"`              // AWS Credential Secret
-	Region          string `md:"region,required" default:"us-region-1"` // AWS Region to upload
+	AwsAccessKey    string `md:"awsAccessKey,required"`                     // AWS Credential Key
+	AwsAccessSecret string `md:"awsAccessSecret,required"`                  // AWS Credential Secret
+	Region          string `md:"region,required" default:"us-region-1"`     // AWS Region to upload
+	DefaultACL      string `md:"defaultACL,required" default:"public-read"` // AWS Region to upload
 }
 
 type Input struct {

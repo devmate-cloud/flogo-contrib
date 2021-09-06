@@ -16,12 +16,6 @@ func init() {
 	_ = activity.Register(&Activity{}, New)
 }
 
-const (
-	methodPOST  = "POST"
-	methodPUT   = "PUT"
-	methodPATCH = "PATCH"
-)
-
 var activityMd = activity.ToMetadata(&Settings{}, &Input{}, &Output{})
 
 func New(ctx activity.InitContext) (activity.Activity, error) {
@@ -92,6 +86,8 @@ func (a *Activity) Eval(ctx activity.Context) (done bool, err error) {
 		// filename as need for an S3 object key. Such as turning absolute path
 		// to a relative path.
 		Key: aws.String(input.Key),
+
+		ACL: aws.String(a.settings.DefaultACL),
 
 		// The file to be uploaded. io.ReadSeeker is preferred as the Uploader
 		// will be able to optimize memory when uploading large content. io.Reader

@@ -22,12 +22,14 @@ func TestEval(t *testing.T) {
 
 	var awsAccessKey = os.Getenv("AWS_ACCESS_KEY_ID")
 	var awsAccessSecret = os.Getenv("AWS_SECRET_ACCESS_KEY")
+	var bucket = os.Getenv("TEST_BUCKET")
+	var key = os.Getenv("TEST_KEY")
 
-	settings := &Settings{AwsAccessKey: awsAccessKey, AwsAccessSecret: awsAccessSecret, Region: "us-east-1"}
+	settings := &Settings{AwsAccessKey: awsAccessKey, AwsAccessSecret: awsAccessSecret, Region: "us-east-1", DefaultACL: "public-read"}
 
 	act := &Activity{settings: settings}
 	tc := test.NewActivityContext(act.Metadata())
-	input := &Input{Bucket: "selligue-test-pinot", Key: "hello.txt", FileContent: "Hello S3 from Flogo"}
+	input := &Input{Bucket: bucket, Key: key, FileContent: "Hello S3 from Flogo"}
 	err := tc.SetInputObject(input)
 	assert.Nil(t, err)
 
@@ -39,4 +41,6 @@ func TestEval(t *testing.T) {
 	err = tc.GetOutputObject(output)
 	assert.Nil(t, err)
 	assert.Equal(t, fmt.Sprintf("https://%s.s3.amazonaws.com/%s", input.Bucket, input.Key), output.Location)
+
+	fmt.Println("Output file: ", output.Location)
 }

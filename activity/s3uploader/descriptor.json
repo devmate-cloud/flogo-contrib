@@ -20,6 +20,11 @@
       "name": "region",
       "type": "string",
       "required": true
+    },
+    {
+      "name": "defaultACL",
+      "type": "string",
+      "required": true
     }
   ],
   "input": [
